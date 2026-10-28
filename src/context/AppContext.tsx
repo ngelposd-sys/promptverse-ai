@@ -7,6 +7,7 @@ import { INITIAL_CHALLENGES } from '../data/challenges';
 export type AppView = 
   | 'home' 
   | 'explore' 
+  | 'photoPro'
   | 'builder' 
   | 'commandCenter' 
   | 'master' 
@@ -14,7 +15,10 @@ export type AppView =
   | 'library' 
   | 'rewards' 
   | 'docs'
-  | 'admin';
+  | 'admin'
+  | 'legal';
+
+export type LegalTab = 'aviso-legal' | 'privacidad' | 'cookies' | 'propiedad-intelectual';
 
 export interface ToastMessage {
   id: string;
@@ -25,6 +29,8 @@ export interface ToastMessage {
 interface AppContextType {
   currentView: AppView;
   setCurrentView: (view: AppView) => void;
+  legalTab: LegalTab;
+  setLegalTab: (tab: LegalTab) => void;
   selectedCategory: string | null;
   setSelectedCategory: (catId: string | null) => void;
   searchQuery: string;
