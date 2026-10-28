@@ -3,12 +3,15 @@ import react from '@vitejs/plugin-react';
 import path from 'path';
 import {defineConfig} from 'vite';
 
-export default defineConfig(() => {
+export default defineConfig(({ command, mode }) => {
+  const isProduction = command === 'build' || mode === 'production';
   return {
+    // In production (GitHub Pages deployment for repo promptverse-ai), assets must be rooted at /promptverse-ai/
+    base: process.env.VITE_BASE_PATH || (isProduction ? '/promptverse-ai/' : '/'),
     plugins: [react(), tailwindcss()],
     resolve: {
       alias: {
-        '@': path.resolve(__dirname, '.'),
+        '@': path.resolve(import.meta.dirname, '.'),
       },
     },
     server: {
