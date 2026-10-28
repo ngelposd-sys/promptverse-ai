@@ -39,13 +39,31 @@ export const PromptDetailModal: React.FC<PromptDetailModalProps> = ({ prompt, on
   } = useApp();
 
   const isFavorite = userStats.favoritePromptIds.includes(prompt.id);
-  const isUnlocked = prompt.coinCost === 0 || userStats.unlockedPromptIds.includes(prompt.id);
+  const coinCost = prompt.coinCost || 0;
+  const isUnlocked = coinCost === 0 || userStats.unlockedPromptIds.includes(prompt.id);
   const category = CATEGORIES.find((c) => c.id === prompt.categoryId);
+
+  // Extract variables safely: either from prompt.variables or parsed from [KEY] in fullPrompt
+  const extractedVariables = React.useMemo(() => {
+    if (prompt.variables && prompt.variables.length > 0) {
+      return prompt.variables;
+    }
+    const matches = Array.from(new Set(prompt.fullPrompt.match(/\[([A-Z0-9_ÁÉÍÓÚÑ/]+)\]/g) || []));
+    return matches.map((m) => {
+      const key = m.replace(/[\[\]]/g, '');
+      return {
+        key,
+        label: key.toLowerCase().replace(/_/g, ' '),
+        placeholder: `Introduce ${key.toLowerCase()}`,
+        defaultValue: ''
+      };
+    });
+  }, [prompt]);
 
   // Initialize variables state
   const [variableValues, setVariableValues] = useState<Record<string, string>>(() => {
     const initial: Record<string, string> = {};
-    prompt.variables.forEach((v) => {
+    extractedVariables.forEach((v) => {
       initial[v.key] = v.defaultValue || '';
     });
     return initial;
@@ -59,14 +77,14 @@ export const PromptDetailModal: React.FC<PromptDetailModalProps> = ({ prompt, on
   // Sync state when prompt changes (e.g. from related prompts)
   useEffect(() => {
     const initial: Record<string, string> = {};
-    prompt.variables.forEach((v) => {
+    extractedVariables.forEach((v) => {
       initial[v.key] = v.defaultValue || '';
     });
     setVariableValues(initial);
     setNoteText(userStats.notes[prompt.id] || '');
     setCopied(false);
     setShowCollectionDropdown(false);
-  }, [prompt.id]);
+  }, [prompt.id, extractedVariables]);
 
   // Compute rendered prompt with replaced variables
   const getRenderedPrompt = () => {
@@ -80,7 +98,7 @@ export const PromptDetailModal: React.FC<PromptDetailModalProps> = ({ prompt, on
 
   const handleCopy = () => {
     if (!isUnlocked) {
-      addToast(`Desbloquea primero este prompt por ${prompt.coinCost} PC`, 'warning');
+      addToast(`Desbloquea primero este prompt por ${coinCost} PC`, 'warning');
       return;
     }
     const finalContent = getRenderedPrompt();
@@ -111,7 +129,7 @@ export const PromptDetailModal: React.FC<PromptDetailModalProps> = ({ prompt, on
 
   const handleResetVariables = () => {
     const initial: Record<string, string> = {};
-    prompt.variables.forEach((v) => {
+    extractedVariables.forEach((v) => {
       initial[v.key] = v.defaultValue || '';
     });
     setVariableValues(initial);
@@ -121,6 +139,17 @@ export const PromptDetailModal: React.FC<PromptDetailModalProps> = ({ prompt, on
   const handleSaveNote = () => {
     savePromptNote(prompt.id, noteText);
   };
+
+  const safeTips: string[] = Array.isArray(prompt.tips)
+    ? prompt.tips
+    : typeof prompt.tips === 'string'
+    ? [prompt.tips]
+    : [];
+
+  const safeErrors: string[] = prompt.commonErrors || [
+    'No contextualizar adecuadamente la tarea.',
+    'Copiar el prompt sin sustituir las variables entre corchetes.'
+  ];
 
   const relatedPrompts = PROMPTS.filter((p) =>
     prompt.relatedPromptIds?.includes(p.id) || (p.categoryId === prompt.categoryId && p.id !== prompt.id)
@@ -291,7 +320,7 @@ export const PromptDetailModal: React.FC<PromptDetailModalProps> = ({ prompt, on
               )}
 
               {/* Variable Customizer */}
-              {prompt.variables.length > 0 && (
+              {extractedVariables.length > 0 && (
                 <div className="p-4 sm:p-5 rounded-2xl bg-[#111728] border border-slate-800">
                   <div className="flex items-center justify-between mb-3">
                     <div className="flex items-center gap-2">
@@ -311,7 +340,7 @@ export const PromptDetailModal: React.FC<PromptDetailModalProps> = ({ prompt, on
                   </div>
 
                   <div className="grid grid-cols-1 sm:grid-cols-2 gap-3.5">
-                    {prompt.variables.map((variable) => (
+                    {extractedVariables.map((variable) => (
                       <div key={variable.key} className="space-y-1">
                         <label className="text-[11px] font-semibold text-purple-300 flex items-center gap-1">
                           <span>[{variable.key}]</span>
@@ -396,7 +425,7 @@ export const PromptDetailModal: React.FC<PromptDetailModalProps> = ({ prompt, on
                 <h4 className="text-xs font-bold text-cyan-400 uppercase tracking-wider mb-1">
                   Objetivo que resuelve
                 </h4>
-                <p className="text-sm text-slate-200">{prompt.objective}</p>
+                <p className="text-sm text-slate-200">{prompt.objective || prompt.description}</p>
               </div>
 
               {/* Example use & Expected Result */}
@@ -430,7 +459,7 @@ export const PromptDetailModal: React.FC<PromptDetailModalProps> = ({ prompt, on
                     Consejos de Expertos
                   </h4>
                   <ul className="space-y-1.5">
-                    {prompt.tips.map((tip, idx) => (
+                    {safeTips.map((tip, idx) => (
                       <li key={idx} className="text-xs text-slate-300 flex items-start gap-2">
                         <span className="text-indigo-400 font-bold">•</span>
                         <span>{tip}</span>
@@ -445,7 +474,7 @@ export const PromptDetailModal: React.FC<PromptDetailModalProps> = ({ prompt, on
                     Errores Habituales a Evitar
                   </h4>
                   <ul className="space-y-1.5">
-                    {prompt.commonErrors.map((err, idx) => (
+                    {safeErrors.map((err, idx) => (
                       <li key={idx} className="text-xs text-slate-300 flex items-start gap-2">
                         <span className="text-rose-400 font-bold">•</span>
                         <span>{err}</span>

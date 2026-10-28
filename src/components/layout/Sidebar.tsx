@@ -31,7 +31,7 @@ export const Sidebar: React.FC<SidebarProps> = ({ isOpenMobile, onCloseMobile })
     badgeColor?: string;
   }> = [
     { id: 'home', label: 'Inicio', icon: <Home className="w-5 h-5" /> },
-    { id: 'explore', label: 'Biblioteca de Prompts', icon: <Compass className="w-5 h-5" />, badge: '40+' },
+    { id: 'explore', label: 'Biblioteca de Prompts', icon: <Compass className="w-5 h-5" />, badge: '200+' },
     { id: 'builder', label: 'Taller de Prompts', icon: <Wrench className="w-5 h-5" />, badge: 'Builder' },
     { id: 'commandCenter', label: 'AI Command Center', icon: <Terminal className="w-5 h-5" /> },
     {

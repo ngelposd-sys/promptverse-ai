@@ -1,4 +1,4 @@
-export type PromptDifficulty = 'Principiante' | 'Intermedio' | 'Avanzado' | 'Master';
+export type PromptDifficulty = 'Principiante' | 'Intermedio' | 'Avanzado' | 'Experto' | 'Master';
 
 export type AccessLevel = 'gratuito' | 'experto' | 'master' | 'infinito';
 
@@ -11,13 +11,14 @@ export type AITool =
   | 'DeepSeek' 
   | 'Perplexity' 
   | 'GitHub Copilot' 
-  | 'Universal';
+  | 'Universal'
+  | string;
 
 export interface PromptVariable {
   key: string; // e.g. "OBJETIVO"
   label: string; // e.g. "Objetivo de la campaña"
-  placeholder: string;
-  defaultValue: string;
+  placeholder?: string;
+  defaultValue?: string;
 }
 
 export interface PromptItem {
@@ -25,26 +26,45 @@ export interface PromptItem {
   title: string;
   description: string;
   categoryId: string;
+  category?: string;
   subcategory?: string;
   tags: string[];
   difficulty: PromptDifficulty;
-  tools: AITool[];
-  objective: string;
+  tools: (AITool | string)[];
+  objective?: string;
   fullPrompt: string;
-  variables: PromptVariable[];
+  variables?: PromptVariable[];
   exampleUse: string;
   expectedResult: string;
-  tips: string[];
-  commonErrors: string[];
-  accessLevel: AccessLevel;
-  coinCost: number; // 0 if free, e.g. 30 or 75 for master
+  tips: string[] | string;
+  commonErrors?: string[];
+  accessLevel?: AccessLevel;
+  coinCost?: number;
   isMaster?: boolean;
-  createdAt: string;
+  createdAt?: string;
   updatedAt?: string;
-  usageCount: number;
-  ratingScore: number; // 1-5
-  author: string;
+  usageCount?: number;
+  ratingScore?: number;
+  rating?: number;
+  views?: number;
+  copies?: number;
+  author?: string;
   relatedPromptIds?: string[];
+}
+
+export interface AICommandItem {
+  id: string;
+  title: string;
+  category: string; // e.g. "Texto", "Código", "Análisis", etc.
+  categoryId?: string;
+  description: string;
+  commandText: string;
+  exampleUse: string;
+  expectedResult: string;
+  tags: string[];
+  tools?: (AITool | string)[];
+  usageCount?: number;
+  ratingScore?: number;
 }
 
 export interface PromptCategory {
@@ -55,6 +75,7 @@ export interface PromptCategory {
   slug: string;
   color: string;
   promptCount: number;
+  commandCount?: number;
 }
 
 export type TechniqueCategory = 

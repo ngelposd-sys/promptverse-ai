@@ -121,22 +121,27 @@ export const PromptCard: React.FC<PromptCardProps> = ({ prompt }) => {
         </p>
 
         {/* Variables badge preview */}
-        {prompt.variables.length > 0 && (
-          <div className="flex items-center gap-1.5 mb-3 flex-wrap">
-            <span className="text-[10px] text-slate-400">Variables:</span>
-            {prompt.variables.slice(0, 3).map((v) => (
-              <span
-                key={v.key}
-                className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-purple-950/40 text-purple-300 border border-purple-800/40"
-              >
-                [{v.key}]
-              </span>
-            ))}
-            {prompt.variables.length > 3 && (
-              <span className="text-[10px] text-slate-400">+{prompt.variables.length - 3}</span>
-            )}
-          </div>
-        )}
+        {((prompt.variables && prompt.variables.length > 0) || (prompt.fullPrompt.match(/\[([A-Z0-9_ÁÉÍÓÚÑ/]+)\]/g) || []).length > 0) && (() => {
+          const vars = prompt.variables && prompt.variables.length > 0
+            ? prompt.variables.map(v => v.key)
+            : Array.from(new Set(prompt.fullPrompt.match(/\[([A-Z0-9_ÁÉÍÓÚÑ/]+)\]/g) || [])).map(m => m.replace(/[\[\]]/g, ''));
+          return (
+            <div className="flex items-center gap-1.5 mb-3 flex-wrap">
+              <span className="text-[10px] text-slate-400">Variables:</span>
+              {vars.slice(0, 3).map((key) => (
+                <span
+                  key={key}
+                  className="text-[10px] font-mono px-1.5 py-0.5 rounded bg-purple-950/40 text-purple-300 border border-purple-800/40"
+                >
+                  [{key}]
+                </span>
+              ))}
+              {vars.length > 3 && (
+                <span className="text-[10px] text-slate-400">+{vars.length - 3}</span>
+              )}
+            </div>
+          );
+        })()}
       </div>
 
       {/* Bottom actions row: Tools, Unlock/Copy button */}

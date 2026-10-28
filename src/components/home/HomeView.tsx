@@ -206,7 +206,7 @@ export const HomeView: React.FC = () => {
             <div className="flex items-center gap-2 text-xs text-slate-400 pt-1">
               <span>Herramientas: {promptOfTheDay.tools.join(', ')}</span>
               <span>•</span>
-              <span>{promptOfTheDay.variables.length} variables parametrizadas</span>
+              <span>{(promptOfTheDay.variables?.length || 0)} variables parametrizadas</span>
             </div>
           </div>
 

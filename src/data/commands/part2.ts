@@ -1,0 +1,647 @@
+import { AICommandItem } from '../../types';
+
+export const COMMANDS_PART2: AICommandItem[] = [
+  // ==========================================
+  // BLOQUE 5: Redes Sociales y Contenido Audiovisual (cmd-51 a cmd-62)
+  // ==========================================
+  {
+    id: 'cmd-51',
+    title: 'Gancho y Primeros 3 Segundos para TikTok / Reels',
+    category: 'Redes Sociales y Audiovisual',
+    categoryId: 'cat-redes',
+    tags: ['Hooks', 'TikTok', 'Instagram Reels', 'Retención'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Genera 5 ganchos verbales y visuales contrastados para frenar el dedo del usuario en el scroll en los primeros 3 segundos.',
+    commandText: 'Crea 5 ganchos iniciales de 3 segundos para un vídeo vertical (TikTok/Reels) sobre: [TEMA_DEL_VÍDEO]. Para cada gancho incluye: 1) Frase exacta a pronunciar (menos de 10 palabras), 2) Acción visual o estímulo en pantalla, y 3) Texto en letras gigantes superpuesto para que funcione sin volumen.',
+    exampleUse: 'Ganchos para un vídeo sobre cómo ahorrar 200€ al mes en la compra del supermercado.',
+    expectedResult: '5 opciones dinámicas con alto potencial de retención y frenado de scroll.'
+  },
+  {
+    id: 'cmd-52',
+    title: 'Transformador de Artículo de Blog en Hilo Viral de X (Twitter)',
+    category: 'Redes Sociales y Audiovisual',
+    categoryId: 'cat-redes',
+    tags: ['X', 'Twitter', 'Hilos', 'Repurposing'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Convierte un post largo en un hilo de 7 tuits con gancho principal, puntos de valor concisos y llamada al retweet.',
+    commandText: 'Adapta este artículo largo en un hilo de X (Twitter) de 7 tuits. Tuit 1: Hook demoledor con número o lección contraintuitiva. Tuits 2 a 6: Una lección aplicable por tuit con formato visual limpio (saltos de línea y viñetas). Tuit 7: Resumen en 1 frase y llamada a la acción para compartir el primer tuit:\n\n[PEGA_EL_ARTÍCULO]',
+    exampleUse: 'Convertir un artículo sobre productividad remota en un hilo que consiga cientos de retweets.',
+    expectedResult: 'Hilo perfectamente formateado y adaptado a la velocidad de lectura de X.'
+  },
+  {
+    id: 'cmd-53',
+    title: 'Carrusel Educativo de 10 Diapositivas para Instagram / LinkedIn',
+    category: 'Redes Sociales y Audiovisual',
+    categoryId: 'cat-redes',
+    tags: ['Carrusel', 'LinkedIn', 'Instagram', 'Diseño'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Estructura el contenido de texto para cada una de las 10 diapositivas de un carrusel gráfico (PDF/Imágenes).',
+    commandText: 'Diseña el contenido textual para un carrusel de 10 diapositivas en LinkedIn/Instagram sobre: [TEMA_O_GUÍA]. Desglosa slide por slide (Slide 1: Portada impactante; Slides 2-8: Los pasos explicados en menos de 25 palabras por lámina; Slide 9: Resumen visual; Slide 10: Portada de cierre con llamada a guardar y comentar).',
+    exampleUse: 'Carrusel sobre "5 comandos de terminal que todo desarrollador debe conocer en 2025".',
+    expectedResult: 'Estructura lista para montar en Canva o Figma sin sobrecargar las diapositivas de texto.'
+  },
+  {
+    id: 'cmd-54',
+    title: 'Optimizador de Títulos y Miniaturas para YouTube (Test A/B/C)',
+    category: 'Redes Sociales y Audiovisual',
+    categoryId: 'cat-video',
+    tags: ['YouTube', 'Títulos', 'CTR', 'Miniaturas'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Genera 6 títulos bajo 50 caracteres y describe el diseño visual de la miniatura correspondiente para maximizar el CTR.',
+    commandText: 'Genera 6 propuestas de títulos de YouTube para un vídeo sobre: [CONTENIDO_DEL_VÍDEO]. Los títulos deben tener menos de 50 caracteres para no cortarse en móviles. Para cada título, describe la miniatura complementaria: qué emoción en el rostro del creador, qué objeto clave en primer plano y qué texto corto (máximo 3 palabras) debe aparecer en la imagen.',
+    exampleUse: 'Títulos para un vídeo probando las gafas de realidad mixta de Apple.',
+    expectedResult: 'Propuestas de alto impacto visual y textual diseñadas para superar el 8% de CTR en YouTube.'
+  },
+  {
+    id: 'cmd-55',
+    title: 'Extractor de 3 Ideas de Micro-Contenido desde un Podcast o Entrevista',
+    category: 'Redes Sociales y Audiovisual',
+    categoryId: 'cat-video',
+    tags: ['Clips', 'Podcast', 'Shorts', 'Repurposing'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Localiza en una transcripción los 3 momentos más virales, controvertidos o emotivos para recortar en Shorts o Reels.',
+    commandText: 'Lee esta transcripción de entrevista o podcast. Identifica los 3 mejores momentos independientes para cortar como clips verticales de 45 segundos. Para cada uno, indica: la frase exacta de inicio y fin, por qué enganchará a la gente y el titular sugerido para el clip:\n\n[PEGA_LA_TRANSCRIPCIÓN]',
+    exampleUse: 'Extraer los 3 mejores cortes de una charla de 1 hora con un emprendedor de éxito.',
+    expectedResult: 'Selección precisa de momentos virales sin tener que escuchar de nuevo todo el audio.'
+  },
+  {
+    id: 'cmd-56',
+    title: 'Publicación de Opinión Contraintuitiva para LinkedIn (Thought Leadership)',
+    category: 'Redes Sociales y Audiovisual',
+    categoryId: 'cat-redes',
+    tags: ['LinkedIn', 'Marca Personal', 'Debate', 'Liderazgo'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Escribe un post para LinkedIn que desafía una creencia aceptada en el sector con argumentos sensatos y apertura al debate.',
+    commandText: 'Escribe una publicación para LinkedIn que cuestione una creencia popular o dogma en mi industria: [CREENCIA_O_MITO_A_DESMONTAR]. Comienza con una afirmación tajante en la primera línea, argumenta en 3 viñetas por qué la realidad es más compleja y cierra con una pregunta abierta e inteligente para suscitar opiniones en comentarios.',
+    exampleUse: 'Cuestionar la idea de que "para triunfar hay que levantarse a las 5 de la mañana todos los días".',
+    expectedResult: 'Post maduro y profesional que genera debate constructivo y posiciona como referente.'
+  },
+  {
+    id: 'cmd-57',
+    title: 'Generador de Prompts en Inglés para Midjourney v6 con Parámetros Técnicos',
+    category: 'Redes Sociales y Audiovisual',
+    categoryId: 'cat-imagenes',
+    tags: ['Midjourney', 'Prompts', 'Fotografía', 'IA'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Convierte una idea en español en un prompt en inglés enriquecido con iluminación cinematográfica y parámetros (--ar, --v 6.1, --style raw).',
+    commandText: 'Convierte la siguiente descripción visual en español en 3 prompts detallados en inglés para Midjourney v6.1:\nIdea: [DESCRIPCIÓN_EN_ESPAÑOL]\n\nCada prompt debe incluir: estilo fotográfico específico (lente, iluminación volumétrica, paleta cromática, composición en tercios), nivel de detalle y los parámetros finales (--ar 16:9 o 9:16, --v 6.1, --style raw, --q 2).',
+    exampleUse: 'Crear la imagen de un reloj de lujo sumergido en agua con burbujas iluminadas por neón azul.',
+    expectedResult: 'Prompts técnicos en inglés listos para copiar y pegar en Discord o la web de Midjourney.'
+  },
+  {
+    id: 'cmd-58',
+    title: 'Prompt Fotográfico para DALL-E 3 sin Deformidades ni Texto Extraño',
+    category: 'Redes Sociales y Audiovisual',
+    categoryId: 'cat-imagenes',
+    tags: ['DALL-E 3', 'ChatGPT', 'Imágenes', 'Fotografía'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Instrucción optimizada para el modelo de OpenAI con descripción hiper-específica de iluminación, texturas y sin carteles accidentales.',
+    commandText: 'Genera un prompt detallado en inglés para DALL-E 3 que describa la siguiente escena: [ESCENA_DESEADA]. Especifica explícitamente el tipo de cámara (ej: shot on Sony A7 IV 85mm f/1.4), la temperatura de color de la luz natural, la textura de la piel o los materiales, e indica que la imagen debe estar completamente libre de texto, marcas de agua o letras flotantes.',
+    exampleUse: 'Retrato realista de una científica trabajando en un laboratorio botánico futurista con luz matinal.',
+    expectedResult: 'Prompt preciso para generar imágenes fotográficas limpias y coherentes en ChatGPT.'
+  },
+  {
+    id: 'cmd-59',
+    title: 'Guion de Presentación Personal en Vídeo (Storytelling en 60 Segundos)',
+    category: 'Redes Sociales y Audiovisual',
+    categoryId: 'cat-video',
+    tags: ['Presentación', 'Vídeo', 'Storytelling', 'Marca Personal'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Guion de 1 minuto para vídeo de portada web o perfil: quién eres, qué cambio provocas y cómo empezar a colaborar.',
+    commandText: 'Escribe un guion en primera persona de 60 segundos (aproximadamente 130 palabras) para un vídeo de bienvenida en la portada de mi web personal o canal:\n- Quién soy y mi campo: [NOMBRE_Y_ESPECIALIDAD]\n- Mi filosofía o punto de vista único: [FILOSOFÍA]\n- Qué aprenderá o conseguirá quien me siga: [PROMESA_DE_VALOR]\n- Llamada a la acción final: [SUSCRÍBETE_O_RESERVA_LLAMADA]',
+    exampleUse: 'Vídeo de bienvenida para un diseñador web freelance en su portafolio online.',
+    expectedResult: 'Discurso cercano y profesional fácil de memorizar o leer en teleprompter.'
+  },
+  {
+    id: 'cmd-60',
+    title: 'Lluvia de 15 Nombres para Canales de YouTube o Series de Contenido',
+    category: 'Redes Sociales y Audiovisual',
+    categoryId: 'cat-video',
+    tags: ['Naming', 'YouTube', 'Series', 'Contenido'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Propuestas de nombres memorables de 2 o 3 palabras para una sección recurrente, podcast o canal digital.',
+    commandText: 'Genera 15 propuestas creativas de nombres para una nueva serie de contenidos o canal de vídeo sobre: [TEMÁTICA_Y_ESTILO]. Divide las sugerencias en: 5 Nombres ingeniosos con juego de palabras, 5 Nombres serios y de autoridad, y 5 Nombres cortos de una o dos palabras fáciles de recordar.',
+    exampleUse: 'Nombres para un programa semanal de entrevistas a programadores sénior que crean proyectos paralelos.',
+    expectedResult: '15 opciones diversas y sonoras para elegir la identidad del proyecto.'
+  },
+  {
+    id: 'cmd-61',
+    title: 'Copy para Publicación de Instagram con Estrategia de Comentarios ("Comenta X y te envío Y")',
+    category: 'Redes Sociales y Audiovisual',
+    categoryId: 'cat-redes',
+    tags: ['Instagram', 'Lead Magnet', 'ManyChat', 'Engagement'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Escribe un pie de foto diseñado para disparar automatizaciones de ManyChat mediante palabras clave en comentarios.',
+    commandText: 'Escribe el copy para un post de Instagram promocionando un recurso gratuito ([NOMBRE_DEL_RECURSO_GRATUITO]). El texto debe crear intriga, listar 3 beneficios clave que contiene el recurso y terminar con una instrucción explícita: "Comenta la palabra [PALABRA_CLAVE] abajo y te lo envío por mensaje privado al instante". Incluye 5 hashtags de nicho al final.',
+    exampleUse: 'Regalar una plantilla de Notion sobre organización de contenidos a quien comente "PLANTILLA".',
+    expectedResult: 'Copy optimizado para disparar el algoritmo de Instagram gracias al volumen de comentarios.'
+  },
+  {
+    id: 'cmd-62',
+    title: 'Extractor de Citas Memorables (Soundbites) para Redes Sociales',
+    category: 'Redes Sociales y Audiovisual',
+    categoryId: 'cat-redes',
+    tags: ['Citas', 'Soundbites', 'Frases', 'Diseño'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Extrae de un artículo o transcripción las 5 frases más contundentes y poéticas para diseñar carteles gráficos en Canva.',
+    commandText: 'Lee el siguiente texto y extrae exactamente 5 frases cortas, aforismos o "soundbites" que tengan la mayor fuerza poética, reflexiva o transformadora. Deben tener menos de 15 palabras para encajar en una imagen gráfica de Instagram o Twitter sin verse pequeñas:\n\n[PEGA_EL_TEXTO]',
+    exampleUse: 'Extraer frases lapidarias de un discurso motivacional para compartirlas en redes.',
+    expectedResult: '5 frases de alto impacto visual y emocional listas para diseñar.'
+  },
+
+  // ==========================================
+  // BLOQUE 6: Productividad, Tareas y Proyectos (cmd-63 a cmd-72)
+  // ==========================================
+  {
+    id: 'cmd-63',
+    title: 'Desglosador de Metas Difusas en Pasos Físicos de 15 Minutos',
+    category: 'Productividad y Proyectos',
+    categoryId: 'cat-productividad',
+    tags: ['Productividad', 'Acción', 'Procrastinación', 'Microtareas'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Vence la parálisis por análisis convirtiendo un objetivo intimidante en una secuencia de tareas ejecutables en 15 minutos.',
+    commandText: 'Tengo que hacer la siguiente tarea pero estoy procrastinando porque la siento abrumadora: "[TAREA_COMPLEJA]". Desglósala en los primeros 5 pasos físicos minúsculos que tomen menos de 15 minutos cada uno. El Paso 1 debe ser tan ridículamente fácil y rápido (menos de 2 minutos) que sea imposible no empezar ahora mismo.',
+    exampleUse: 'Empezar a hacer la declaración de la renta o redactar una memoria anual de 50 páginas.',
+    expectedResult: 'Desbloqueo inmediato de la pereza mediante micro-compromisos progresivos.'
+  },
+  {
+    id: 'cmd-64',
+    title: 'Generador de Definición de Terminado (Definition of Done) para Equipos Ágiles',
+    category: 'Productividad y Proyectos',
+    categoryId: 'cat-proyectos',
+    tags: ['Agile', 'Scrum', 'Calidad', 'DoD'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Crea un checklist riguroso de criterios que debe cumplir una tarea antes de que nadie pueda moverla a "Terminado" en Jira.',
+    commandText: 'Crea una "Definition of Done" (DoD) profesional para un equipo de [TIPO_DE_EQUIPO_EJ_DESARROLLO_WEB_O_DISEÑO_UX_O_MARKETING]. Incluye criterios innegociables de calidad técnica, documentación, revisión cruzada, accesibilidad y pruebas antes de dar por cerrada cualquier entrega.',
+    exampleUse: 'Estandarizar la entrega de funcionalidades en un equipo de desarrollo frontend.',
+    expectedResult: 'Checklist objetivo que elimina debates sobre si algo está realmente terminado o no.'
+  },
+  {
+    id: 'cmd-65',
+    title: 'Estructurador de Espacio de Trabajo en Notion para un Proyecto Nuevo',
+    category: 'Productividad y Proyectos',
+    categoryId: 'cat-productividad',
+    tags: ['Notion', 'Organización', 'Plantillas', 'Bases de Datos'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Diseña la arquitectura de páginas, bases de datos relacionales, vistas (Kanban, Calendario) y propiedades para Notion.',
+    commandText: 'Diseña la estructura completa de un espacio de Notion para gestionar: [TIPO_DE_PROYECTO_O_EMPRESA]. Especifica:\n1. Qué bases de datos maestras crear y cómo se relacionan entre sí.\n2. Propiedades exactas recomendadas para cada base de datos (Select, Multi-select, Date, Rollup...).\n3. Las 3 vistas principales recomendadas (ej: Tablero Kanban por Estado, Galería de Recursos y Calendario de Entregas).\n4. Plantilla estándar de página interna para nuevos elementos.',
+    exampleUse: 'Organizar la producción de contenidos de una agencia con clientes, calendarios y entregables.',
+    expectedResult: 'Manual de montaje claro para construir un Notion limpio y escalable sin saturación.'
+  },
+  {
+    id: 'cmd-66',
+    title: 'Priorizador de Backlog mediante Método RICE (Reach, Impact, Confidence, Effort)',
+    category: 'Productividad y Proyectos',
+    categoryId: 'cat-proyectos',
+    tags: ['RICE', 'Priorización', 'Product Management', 'Backlog'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Calcula la puntuación RICE para una lista de iniciativas para saber matemáticamente cuál abordar primero.',
+    commandText: 'Aplica el modelo de puntuación RICE a las siguientes iniciativas o funcionalidades:\n[LISTA_DE_IDEAS_O_FUNCIONALIDADES]\n\nEvalúa para cada una en una tabla:\n- R (Reach): Cuántos usuarios se beneficiarán al mes.\n- I (Impact): Impacto en el objetivo (0.25 Mínimo, 1 Medio, 2 Alto, 3 Masivo).\n- C (Confidence): Nivel de certeza de los datos (50% Bajo, 80% Medio, 100% Alto).\n- E (Effort): Personas-semana de trabajo requeridas.\n- Puntuación RICE final = (R x I x C) / E. Ordena la tabla de mayor a menor prioridad.',
+    exampleUse: 'Priorizar entre añadir pagos con criptomonedas, rediseñar el checkout o crear un programa de fidelización.',
+    expectedResult: 'Clasificación objetiva y justificada que defiende las prioridades del equipo con datos.'
+  },
+  {
+    id: 'cmd-67',
+    title: 'Transformador de Objetivos Vagos en Metas SMART con Métricas Concretas',
+    category: 'Productividad y Proyectos',
+    categoryId: 'cat-proyectos',
+    tags: ['SMART', 'Objetivos', 'OKRs', 'Planificación'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Convierte un deseo abstracto ("mejorar las ventas") en una meta SMART con cifra, plazo y método de medición.',
+    commandText: 'Transforma el siguiente objetivo vago en 3 formulaciones de Metas SMART (Específica, Medible, Alcanzable, Relevante y con Límite Temporal) impecables:\nObjetivo vago: "[PEGA_TU_OBJETIVO_VAGO]"\nPara cada una, desglosa el indicador clave de rendimiento (KPI) y la fecha de corte sugerida.',
+    exampleUse: 'Convertir "hacer más deporte este año" o "aumentar la visibilidad de la marca" en metas auditables.',
+    expectedResult: 'Objetivos cristalinos que permiten evaluar objetivamente si se consiguieron o no.'
+  },
+  {
+    id: 'cmd-68',
+    title: 'Diseñador de Flujo de Trabajo Asíncrono para Equipos en Remoto',
+    category: 'Productividad y Proyectos',
+    categoryId: 'cat-proyectos',
+    tags: ['Trabajo Remoto', 'Asincronía', 'Slack', 'Eficiencia'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Establece normas de comunicación para no depender de llamadas constantes: cuándo usar Slack, Loom, Notion o email.',
+    commandText: 'Crea el manifiesto de comunicación asíncrona para un equipo que trabaja 100% en remoto en diferentes zonas horarias. Define una tabla de uso de herramientas: qué canal usar según la urgencia (Emergencia crítica, Debate de diseño, Actualización de estado, Duda rápida), tiempos de respuesta esperados y protocolos para no interrumpir el foco de los compañeros.',
+    exampleUse: 'Organizar la comunicación de una startup de 10 personas entre España, México y Argentina.',
+    expectedResult: 'Reglas de juego claras que devuelven el tiempo de concentración y eliminan el estrés de estar siempre conectado.'
+  },
+  {
+    id: 'cmd-69',
+    title: 'Protocolo de Delegación Eficaz en 5 Niveles (Mundo Directivo)',
+    category: 'Productividad y Proyectos',
+    categoryId: 'cat-rrhh',
+    tags: ['Delegación', 'Liderazgo', 'Gestión', 'Empoderamiento'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Redacta el encargo de una tarea a un colaborador asignando uno de los 5 niveles de autonomía de Michael Hyatt.',
+    commandText: 'Ayúdame a redactar el mensaje de delegación de la siguiente tarea a un miembro de mi equipo: [TAREA_A_DELEGAR]. El mensaje debe explicitar con total claridad: 1) El resultado deseado (no el método exacto), 2) La fecha y hora límite de entrega, 3) El nivel de autonomía otorgado (Nivel 1: Investiga y dime opciones; Nivel 2: Decide e infórmame antes de actuar; Nivel 3: Actúa e infórmame a posteriori), y 4) Qué recursos tiene a su disposición.',
+    exampleUse: 'Delegar la organización de un evento de empresa en un asistente de dirección.',
+    expectedResult: 'Instrucción de delegación profesional que empodera al empleado y previene sorpresas desagradables.'
+  },
+  {
+    id: 'cmd-70',
+    title: 'Planificador de Pomodoros Diarios con Asignación de Energía Mental',
+    category: 'Productividad y Proyectos',
+    categoryId: 'cat-productividad',
+    tags: ['Pomodoro', 'Foco', 'Energía', 'Planificación'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Agrupa tu lista de tareas en bloques de 25 minutos (Pomodoros) emparejándolos con tu nivel de energía a lo largo del día.',
+    commandText: 'Convierte mi siguiente lista de pendientes en un plan de [NÚMERO_DE_POMODOROS_DISPONIBLES] Pomodoros de 25 minutos con 5 minutos de pausa:\n[LISTA_DE_TAREAS]\nAsigna las tareas más cognitivamente pesadas a los primeros Pomodoros y las tareas administrativas o mecánicas a los últimos.',
+    exampleUse: 'Distribuir una jornada laboral en 12 Pomodoros de enfoque.',
+    expectedResult: 'Itinerario de concentración estructurado que evita la fatiga por sobreesfuerzo.'
+  },
+  {
+    id: 'cmd-71',
+    title: 'Filtro Anti-Compromisos para Decir "No" Educadamente',
+    category: 'Productividad y Proyectos',
+    categoryId: 'cat-productividad',
+    tags: ['Asertividad', 'Límites', 'Decir No', 'Tiempo'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Genera 3 opciones de respuesta educada y firme para rechazar una invitación o petición laboral sin sentirte culpable.',
+    commandText: 'Escribe 3 variantes de respuesta educada pero categórica para decir "NO" a la siguiente petición sin ofrecer excusas falsas:\n[PETICIÓN_QUE_DESEAS_RECHAZAR]\n- Variante 1: Tono cálido para un amigo o colega cercano.\n- Variante 2: Tono corporativo formal para un cliente o directivo.\n- Variante 3: Respuesta breve y diplomática sugiriendo a otra persona o recurso alternativo.',
+    exampleUse: 'Rechazar participar como ponente no remunerado en un congreso porque estás enfocado en tus propios proyectos.',
+    expectedResult: 'Tres mensajes asertivos que protegen tu tiempo sin quemar puentes personales.'
+  },
+  {
+    id: 'cmd-72',
+    title: 'Checklist de Verificación Pre-Vuelo para Lanzamientos Digitales',
+    category: 'Productividad y Proyectos',
+    categoryId: 'cat-proyectos',
+    tags: ['Checklist', 'Lanzamiento', 'Control de Calidad', 'Web'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Lista de comprobación exhaustiva de 15 puntos críticos antes de publicar una web, campaña o newsletter masiva.',
+    commandText: 'Genera un checklist de comprobación "pre-vuelo" de 15 puntos críticos que debemos revisar 30 minutos antes de hacer público: [TIPO_DE_LANZAMIENTO_EJ_NUEVA_WEB_O_CAMPAÑA_DE_ANUNCIOS_O_NEWSLETTER_A_50K_SUSCRIPTORES]. Cubre aspectos de enlaces rotos, píxeles de seguimiento, ortografía, formularios de pago y visualización en dispositivos móviles.',
+    exampleUse: 'Comprobaciones finales antes de lanzar una tienda online con campaña de Black Friday.',
+    expectedResult: 'Lista de seguridad que evita errores embarazosos o costosos en directo.'
+  },
+
+  // ==========================================
+  // BLOQUE 7: Investigación, Auditoría y Análisis Crítico (cmd-73 a cmd-82)
+  // ==========================================
+  {
+    id: 'cmd-73',
+    title: 'Identificador de Preguntas sin Responder en un Documento',
+    category: 'Investigación y Análisis',
+    categoryId: 'cat-investigacion',
+    tags: ['Auditoría', 'Omisiones', 'Análisis Crítico', 'Investigación'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Encuentra las lagunas, datos que faltan deliberadamente o preguntas críticas que el autor esquivó en su informe.',
+    commandText: 'Lee con ojo forense el siguiente informe o propuesta. En lugar de decirme qué contiene, dime qué omite o esquiva: identifica 4 preguntas críticas de calado que el texto convenientemente no responde o pasa por alto con vaguedades:\n\n[PEGA_EL_DOCUMENTO]',
+    exampleUse: 'Auditar la memoria económica de un proveedor antes de firmar un contrato plurianual.',
+    expectedResult: 'Descubrimiento de ángulos muertos y puntos débiles deliberadamente ocultos.'
+  },
+  {
+    id: 'cmd-74',
+    title: 'Generador de Preguntas Trampa para Entrevistas a Expertos',
+    category: 'Investigación y Análisis',
+    categoryId: 'cat-investigacion',
+    tags: ['Entrevistas', 'Periodismo', 'Expertos', 'Preguntas'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Diseña preguntas técnicas incisivas para comprobar si alguien que se presenta como experto realmente domina la materia.',
+    commandText: 'Voy a entrevistar a un supuesto especialista en [MATERIA_O_DISCIPLINA]. Diseña 5 preguntas técnicas y situacionales muy concretas que un farsante que solo repite clichés de internet no sabrá responder, pero que un profesional auténtico que ha resuelto problemas en las trincheras responderá con pasión y detalles prácticos.',
+    exampleUse: 'Evaluar a una agencia que promete ser experta en posicionamiento SEO para e-commerce internacional.',
+    expectedResult: 'Filtro de detección de humo infalible para entrevistas y contrataciones de servicios.'
+  },
+  {
+    id: 'cmd-75',
+    title: 'Extracción Forense de Cifras, Fechas y Compromisos Contractuales',
+    category: 'Investigación y Análisis',
+    categoryId: 'cat-investigacion',
+    tags: ['Extracción', 'Legal', 'Fechas', 'Contratos', 'Datos'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Escanea un texto denso y extrae exclusivamente en una tabla todas las fechas límite, cantidades monetarias y penalizaciones.',
+    commandText: 'Extrae de este texto todos los datos cuantitativos y compromisos formales. Preséntalos en una tabla con cuatro columnas: 1) Concepto/Compromiso, 2) Fecha o Plazo límite, 3) Importe económico o penalización asociada, 4) Parte obligada a cumplirlo:\n\n[PEGA_EL_TEXTO_LEGAL_O_INFORME]',
+    exampleUse: 'Extraer en 30 segundos todas las obligaciones de un contrato de alquiler comercial de 20 páginas.',
+    expectedResult: 'Tabla estructurada con todos los compromisos legales y financieros visibles de un vistazo.'
+  },
+  {
+    id: 'cmd-76',
+    title: 'Contraste de Fuentes: Síntesis de Dos Enfoques Contradictorios',
+    category: 'Investigación y Análisis',
+    categoryId: 'cat-investigacion',
+    tags: ['Debate', 'Contraste', 'Síntesis', 'Objetividad'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Toma dos posturas radicalmente opuestas sobre un tema y sintetiza los puntos de acuerdo, los desacuerdos nucleares y la evidencia de cada lado.',
+    commandText: 'Analiza estas dos posturas encontradas sobre [TEMA_EN_DISPUTA]:\nPostura A: [RESUMEN_A]\nPostura B: [RESUMEN_B]\n\nEstructura el análisis en: 1) Los puntos de acuerdo implícitos que ambas partes comparten sin darse cuenta, 2) El desacuerdo nuclear irreconciliable (la discrepancia de valores o premisas de partida), y 3) Qué tipo de experimento empírico o dato objetivo resolvería la disputa.',
+    exampleUse: 'Comparar argumentos a favor y en contra de la regulación estricta de modelos de código abierto de IA.',
+    expectedResult: 'Visión ecuánime y madura que eleva la calidad del debate por encima del partidismo.'
+  },
+  {
+    id: 'cmd-77',
+    title: 'Analizador de Coherencia de Datos y Matemáticas Básicas en un Informe',
+    category: 'Investigación y Análisis',
+    categoryId: 'cat-datos',
+    tags: ['Matemáticas', 'Auditoría', 'Chequeo de Datos', 'Precisión'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Verifica si los porcentajes suman 100%, si las multiplicaciones cuadran y si los gráficos de texto presentan inconsistencias numéricas.',
+    commandText: 'Revisa exclusivamente las matemáticas y la coherencia numérica del siguiente informe: comprueba si las sumas y porcentajes cuadran, si las tasas de crecimiento anualizadas son consistentes con los datos de partida y señala cualquier contradicción entre las cifras mencionadas en diferentes párrafos:\n\n[PEGA_EL_INFORME_CON_NÚMEROS]',
+    exampleUse: 'Auditar un borrador de plan financiero antes de presentarlo al consejo de administración.',
+    expectedResult: 'Detección inmediata de erratas numéricas antes de que dañen tu credibilidad en una reunión.'
+  },
+  {
+    id: 'cmd-78',
+    title: 'Detector de Alucinaciones y Afirmaciones sin Cita',
+    category: 'Investigación y Análisis',
+    categoryId: 'cat-investigacion',
+    tags: ['Fact-Checking', 'Verificación', 'Citas', 'Rigor'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Resalta todas las afirmaciones fácticas extraordinarias que se presentan como ciertas pero carecen de fuente o referencia verificable.',
+    commandText: 'Analiza el siguiente texto con la mentalidad de un verificador de hechos (Fact-Checker). Subraya o extrae todas las afirmaciones que declaran un dato estadístico, un hecho histórico o una relación causal pero que no aportan una fuente comprobable o que suenan dudosas. Clasifícalas como "Verificable fácilmente", "Dudosa/Exagerada" o "Sin evidencia":\n\n[PEGA_EL_TEXTO]',
+    exampleUse: 'Comprobar un borrador de artículo generado previamente por otra IA antes de publicarlo.',
+    expectedResult: 'Informe de riesgos de desinformación para blindar la veracidad del texto.'
+  },
+  {
+    id: 'cmd-79',
+    title: 'Generador de Cuestionarios de Encuesta Cuantitativa y Cualitativa',
+    category: 'Investigación y Análisis',
+    categoryId: 'cat-investigacion',
+    tags: ['Encuestas', 'Investigación', 'Métricas', 'Feedback'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Diseña una encuesta de 8 preguntas que combina escalas Likert del 1 al 5 y preguntas abiertas sin inducir la respuesta.',
+    commandText: 'Diseña una encuesta de satisfacción e investigación de 8 preguntas para: [TEMA_O_PRODUCTO]. Asegúrate de que las preguntas no estén sesgadas (no utilices preguntas inducidas como "¿Qué es lo que más te gusta de...?"). Incluye 5 preguntas con escala Likert de 1 a 5 con etiquetas claras en los extremos y 3 preguntas abiertas cualitativas.',
+    exampleUse: 'Medir la satisfacción de los empleados con el nuevo plan de beneficios de la empresa.',
+    expectedResult: 'Cuestionario neutral y profesional listo para montar en Typeform o Google Forms.'
+  },
+  {
+    id: 'cmd-80',
+    title: 'Mapa de Actores Relevantes y Partes Interesadas (Stakeholder Mapping)',
+    category: 'Investigación y Análisis',
+    categoryId: 'cat-proyectos',
+    tags: ['Stakeholders', 'Poder-Interés', 'Gobernanza', 'Estrategia'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Clasifica a los actores de un proyecto en la matriz 2x2 de Poder versus Interés: Gestionar de cerca, Mantener satisfecho, Mantener informado o Monitorizar.',
+    commandText: 'Crea el mapa de partes interesadas (Stakeholder Matrix) para la siguiente iniciativa: [DESCRIPCIÓN_DE_LA_INICIATIVA]. Clasifica a todos los colectivos o personas involucradas en una cuadrícula:\n1. Alto Poder / Alto Interés (Gestionar de cerca con máxima prioridad).\n2. Alto Poder / Bajo Interés (Mantener satisfechos para no crear bloqueos).\n3. Bajo Poder / Alto Interés (Mantener bien informados como aliados).\n4. Bajo Poder / Bajo Interés (Monitorizar con mínimo esfuerzo). Para cada grupo, sugiere la estrategia de comunicación adecuada.',
+    exampleUse: 'Mapear a los actores involucrados en la peatonalización de una avenida comercial céntrica.',
+    expectedResult: 'Estrategia política y comunicativa para garantizar el éxito de la iniciativa sin conflictos evitables.'
+  },
+  {
+    id: 'cmd-81',
+    title: 'Generador de Hipótesis Falsables para Validación Científica',
+    category: 'Investigación y Análisis',
+    categoryId: 'cat-investigacion',
+    tags: ['Hipótesis', 'Falsabilidad', 'Método Científico', 'Validación'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Transforma una intuición de negocio en una hipótesis científica falsable con condición experimental, métrica y umbral de refutación.',
+    commandText: 'Convierte mi intuición: "[MI_INTUICIÓN_O_CREENCIA]" en una hipótesis falsable bajo el método científico con la siguiente estructura: "Creemos que [ACCIÓN] para [USUARIO] provocará [RESULTADO MEDIBLE]. Sabremos que la hipótesis es FALSA si [MÉTRICA EXACTA Y UMBRAL NUMÉRICO] al cabo de [TIEMPO]".',
+    exampleUse: 'Validar si ofrecer soporte por WhatsApp realmente aumenta la tasa de recompra de clientes.',
+    expectedResult: 'Hipótesis nítida que evita autoengañarse con métricas vanidosas.'
+  },
+  {
+    id: 'cmd-82',
+    title: 'Extracción de Taxonomía y Etiquetas Clave para Archivos y Gestores Documentales',
+    category: 'Investigación y Análisis',
+    categoryId: 'cat-investigacion',
+    tags: ['Taxonomía', 'Etiquetas', 'Clasificación', 'Gestión Documental'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Analiza un lote de documentos o textos y propone un árbol taxonómico de 3 niveles y 10 etiquetas normalizadas para clasificarlos.',
+    commandText: 'Analiza el siguiente texto representativo de nuestro archivo documental. Propón una estructura taxonómica limpia de 3 niveles jerárquicos (Categoría Madre > Subcategoría > Tema) y una lista de 8 etiquetas universales (tags) estandarizadas para clasificar este tipo de documentos sin redundancias:\n\n[PEGA_EL_TEXTO]',
+    exampleUse: 'Organizar la biblioteca de conocimiento interna de un despacho de abogados.',
+    expectedResult: 'Taxonomía lógica que hace que los documentos sean fácilmente encontrables por todo el equipo.'
+  },
+
+  // ==========================================
+  // BLOQUE 8: Datos, Tablas, Fórmulas de Excel y Hojas de Cálculo (cmd-83 a cmd-92)
+  // ==========================================
+  {
+    id: 'cmd-83',
+    title: 'Fórmula BUSCARX (XLOOKUP) Multicriterio para Excel',
+    category: 'Datos y Hojas de Cálculo',
+    categoryId: 'cat-datos',
+    tags: ['Excel', 'BUSCARX', 'XLOOKUP', 'Fórmulas'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Genera la fórmula exacta de BUSCARX que busca un valor cumpliendo dos condiciones simultáneas sin crear columnas auxiliares.',
+    commandText: 'Escribe la fórmula exacta de BUSCARX (en español y en inglés) para Excel 365 que busque en la columna [COLUMNA_RESULTADO] el valor que coincida simultáneamente con dos criterios: Criterio 1 en [RANGO_1] = "[VALOR_1]" Y Criterio 2 en [RANGO_2] = "[VALOR_2]". Explica cómo funciona la sintaxis booleana con el operador (rango1=val1)*(rango2=val2).',
+    exampleUse: 'Buscar el precio unitario correspondiente a un producto específico para un cliente determinado.',
+    expectedResult: 'Fórmula multicriterio moderna lista para pegar en Excel con explicación clara.'
+  },
+  {
+    id: 'cmd-84',
+    title: 'Fórmula Dinámica con FILTRAR e INDICE/COINCIDIR',
+    category: 'Datos y Hojas de Cálculo',
+    categoryId: 'cat-datos',
+    tags: ['Excel', 'FILTRAR', 'Matrices Dinámicas', 'Google Sheets'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Devuelve todas las filas de una tabla que coinciden con una condición mediante la función matriz dinámica FILTRAR (FILTER).',
+    commandText: 'Necesito una fórmula en [EXCEL_O_GOOGLE_SHEETS] usando la función matriz FILTRAR (FILTER) para extraer automáticamente todas las filas de la tabla [RANGO_DATOS] donde la columna de estado [COLUMNA_ESTADO] sea igual a "[ESTADO_DESEADO]". Si no hay coincidencias, debe mostrar el texto "Sin resultados".',
+    exampleUse: 'Extraer en una pestaña independiente todas las facturas que están en estado "PENDIENTE".',
+    expectedResult: 'Fórmula dinámica que se desborda automáticamente reflejando cambios en tiempo real.'
+  },
+  {
+    id: 'cmd-85',
+    title: 'Conversor de Texto Desordenado a Tabla Markdown / CSV Limpia',
+    category: 'Datos y Hojas de Cálculo',
+    categoryId: 'cat-datos',
+    tags: ['CSV', 'Markdown', 'Tablas', 'Transformación'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Toma datos desordenados o párrafos con nombres y teléfonos y los organiza en una tabla CSV delimitada por punto y coma.',
+    commandText: 'Toma la siguiente lista de datos no estructurados y organízalos en una tabla limpia. Entrega el resultado en dos formatos: 1) Tabla visual en Markdown, 2) Bloque de código CSV separado por punto y coma (;) listo para guardar como archivo .csv y abrir directamente en Excel:\n\n[PEGA_LOS_DATOS_DESORDENADOS]',
+    exampleUse: 'Convertir un email con contactos de personas, cargos y correos en una tabla importable a Excel.',
+    expectedResult: 'Datos 100% normalizados sin celdas desplazadas ni caracteres extraños.'
+  },
+  {
+    id: 'cmd-86',
+    title: 'Generador de Fórmulas SI Anidadas o Función SI.CONJUNTO (IFS)',
+    category: 'Datos y Hojas de Cálculo',
+    categoryId: 'cat-datos',
+    tags: ['Excel', 'SI.CONJUNTO', 'Lógica', 'Condicionales'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Crea una fórmula condicional limpia para clasificar valores en rangos (ej: comisiones por tramos de ventas o notas académicas).',
+    commandText: 'Escribe la fórmula para Excel/Google Sheets usando la función moderna SI.CONJUNTO (IFS) para clasificar el valor de la celda [CELDA_A_EVALUAR] en los siguientes tramos:\n- Si es menor que [VALOR_1]: devolver "[ETIQUETA_1]"\n- Si está entre [VALOR_1] y [VALOR_2]: devolver "[ETIQUETA_2]"\n- Si es mayor que [VALOR_2]: devolver "[ETIQUETA_3]"\n- En cualquier otro caso: devolver "[ETIQUETA_DEFAULT]"',
+    exampleUse: 'Clasificar clientes según volumen de facturación en Bronce, Plata, Oro o Platino.',
+    expectedResult: 'Fórmula condicional elegante sin los engorrosos anidamientos de SI antiguos.'
+  },
+  {
+    id: 'cmd-87',
+    title: 'Separador de Nombres, Apellidos y Códigos Postales con Fórmulas de Texto',
+    category: 'Datos y Hojas de Cálculo',
+    categoryId: 'cat-datos',
+    tags: ['Texto en Columnas', 'Excel', 'DIVIDIRTEXTO', 'Limpieza'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Divide celdas que contienen nombres completos o direcciones usando las nuevas funciones DIVIDIRTEXTO (TEXTSPLIT) o EXTRAE.',
+    commandText: 'Tengo en la columna A nombres completos con formato "Apellidos, Nombre". Proporciona la fórmula para Excel 365 que extraiga en la columna B el Nombre de pila limpio y en la columna C los Apellidos, eliminando cualquier espacio en blanco sobrante antes o después.',
+    exampleUse: 'Limpiar una base de datos de 2.000 alumnos para unificar el tratamiento en cartas formales.',
+    expectedResult: 'Fórmulas de texto limpias que resuelven la separación en un segundo.'
+  },
+  {
+    id: 'cmd-88',
+    title: 'Fórmula de Cálculo de Días Laborables Reales (DÍAS.LAB.INTL)',
+    category: 'Datos y Hojas de Cálculo',
+    categoryId: 'cat-datos',
+    tags: ['Excel', 'Fechas', 'Días Laborables', 'Festivos'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Calcula los días hábiles entre dos fechas excluyendo fines de semana personalizados y una lista de festivos oficiales.',
+    commandText: 'Escribe la fórmula en español para Excel utilizando la función DÍAS.LAB.INTL (NETWORKDAYS.INTL) para calcular los días laborables entre la fecha inicial [CELDA_INICIO] y la fecha final [CELDA_FIN], considerando fin de semana únicamente sábados y domingos y tomando en cuenta la lista de días festivos ubicada en el rango [RANGO_FESTIVOS].',
+    exampleUse: 'Calcular el plazo legal exacto de entrega de un proyecto excluyendo puentes y festivos locales.',
+    expectedResult: 'Cálculo de fechas riguroso aplicable a contratos laborales y plazos de entrega.'
+  },
+  {
+    id: 'cmd-89',
+    title: 'Generador de Consultas QUERY de Google Sheets con Cláusula WHERE y ORDER BY',
+    category: 'Datos y Hojas de Cálculo',
+    categoryId: 'cat-datos',
+    tags: ['Google Sheets', 'QUERY', 'SQL', 'Hojas de Cálculo'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Escribe la fórmula QUERY de Google Sheets que actúa como un mini-motor SQL para filtrar, ordenar y seleccionar columnas específicas.',
+    commandText: 'Escribe la fórmula con la función QUERY de Google Sheets para consultar los datos del rango [HOJA!RANGO]. Debe seleccionar solo las columnas [COLUMNAS_A_SELECCIONAR], donde la columna [COLUMNA_FILTRO] sea mayor que [VALOR_NUMÉRICO] y la columna [COLUMNA_TEXTO] contenga "[TEXTO]", ordenando el resultado final por la fecha en orden descendente.',
+    exampleUse: 'Crear una vista resumen en tiempo real de los pedidos completados de más de 100€ este mes.',
+    expectedResult: 'Fórmula QUERY de alta potencia analítica sin necesidad de crear scripts.'
+  },
+  {
+    id: 'cmd-90',
+    title: 'Detección y Marcado de Duplicados en Excel con Formato Condicional',
+    category: 'Datos y Hojas de Cálculo',
+    categoryId: 'cat-datos',
+    tags: ['Excel', 'Duplicados', 'Formato Condicional', 'Calidad'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Fórmula lógica basada en CONTAR.SI para resaltar en color rojo únicamente los registros que aparecen por segunda o tercera vez.',
+    commandText: 'Escribe la fórmula para aplicar en una regla de Formato Condicional de Excel en el rango [RANGO_DE_CELDAS] que resalte en rojo únicamente a partir de la SEGUNDA aparición de un valor duplicado (dejando la primera aparición sin resaltar para identificar cuál es el original):\nFórmula con CONTAR.SI($A$2:A2, A2) > 1.',
+    exampleUse: 'Identificar emails o identificadores de clientes duplicados en una tabla de importación.',
+    expectedResult: 'Regla visual instantánea para depurar registros repetidos.'
+  },
+  {
+    id: 'cmd-91',
+    title: 'Generador de Medida DAX para Power BI: Acumulado Anual (YTD) con Filtros',
+    category: 'Datos y Hojas de Cálculo',
+    categoryId: 'cat-datos',
+    tags: ['DAX', 'Power BI', 'YTD', 'Business Intelligence'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Escribe el código DAX limpio para calcular ventas acumuladas en lo que va de año (TOTALYTD) respetando la tabla de calendario.',
+    commandText: 'Escribe la medida en DAX para Power BI que calcule las ventas acumuladas del año a la fecha (Sales YTD) utilizando la función TOTALYTD o CALCULATE con DATESYTD. La tabla de hechos se llama `[TABLA_VENTAS]` con la columna `[IMPORTE]`, y la tabla de fechas marcada como calendario se llama `[Calendario]` con el campo `[Fecha]`. Añade comentarios explicativos en el código DAX.',
+    exampleUse: 'Crear el indicador YTD para el informe mensual de dirección en Power BI.',
+    expectedResult: 'Medida DAX optimizada que no genera cuellos de botella en el motor tabular VertiPaq.'
+  },
+  {
+    id: 'cmd-92',
+    title: 'Generador de Fórmulas SUMAR.SI.CONJUNTO para Informes Contables',
+    category: 'Datos y Hojas de Cálculo',
+    categoryId: 'cat-datos',
+    tags: ['Excel', 'SUMAR.SI.CONJUNTO', 'Contabilidad', 'Finanzas'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Suma importes con múltiples condiciones de fecha (entre dos fechas), cuenta contable y centro de costes.',
+    commandText: 'Escribe la fórmula de SUMAR.SI.CONJUNTO (SUMIFS) para Excel que sume la columna [RANGO_SUMA] siempre que:\n1. La fecha en [RANGO_FECHAS] sea mayor o igual que [FECHA_INICIO].\n2. La fecha en [RANGO_FECHAS] sea menor o igual que [FECHA_FIN].\n3. La categoría en [RANGO_CATEGORIAS] sea igual a [CELDA_CATEGORIA].\nMuestra cómo concatenar las fechas con los operadores ">=" y "<=" correctamente.',
+    exampleUse: 'Calcular el gasto total en suministros entre el 1 de enero y el 31 de marzo de 2025.',
+    expectedResult: 'Fórmula contable a prueba de fallos sin errores de sintaxis en las comillas.'
+  },
+
+  // ==========================================
+  // BLOQUE 9: Simulación de Roles, Idiomas, Meta-Prompting y Afinación (cmd-93 a cmd-102)
+  // ==========================================
+  {
+    id: 'cmd-93',
+    title: 'Adopción de Rol: Consejero Delegado (CEO) Pragmático y Decisivo',
+    category: 'Simulación de Roles y Escenarios',
+    categoryId: 'cat-negocios',
+    tags: ['CEO', 'Roleplay', 'Liderazgo', 'Toma de Decisiones'],
+    tools: ['ChatGPT', 'Claude', 'Gemini'],
+    description: 'Configura a la IA como un CEO curtido en crisis que te responde con pragmatismo, números, foco y sin rodeos teóricos.',
+    commandText: 'A partir de este momento, asume el rol de un CEO de una empresa cotizada con 20 años de experiencia al mando. Tu estilo de respuesta es pragmático, enfocado en el retorno económico, la asignación de capital y el liderazgo de equipos. Odias la burocracia y las respuestas tibias: cuando te plantee un dilema, toma una postura clara, explica tu decisión en 3 puntos y dime cuál es el riesgo que estás dispuesto a asumir.',
+    exampleUse: 'Consultar si conviene despedir a un cliente tóxico que aporta el 15% de los ingresos de la agencia.',
+    expectedResult: 'Respuestas de alta dirección libres de indecisiones corporativas.'
+  },
+  {
+    id: 'cmd-94',
+    title: 'Adopción de Rol: Catedrático de Lingüística y Gramático de la RAE',
+    category: 'Simulación de Roles y Escenarios',
+    categoryId: 'cat-escritura',
+    tags: ['RAE', 'Gramática', 'Lingüística', 'Corrección'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Convierte a la IA en un académico de la lengua que analiza etimología, concordancia y normas actuales de la RAE.',
+    commandText: 'Actúa como un catedrático de lengua española y miembro correspondiente de la Real Academia Española (RAE). Resuelve mis dudas lingüísticas citando cuando sea pertinente la "Nueva gramática de la lengua española" o el "Diccionario panhispánico de dudas", explicando la etimología de las palabras y distinguiendo con precisión entre la norma culta prescriptiva y el uso popular descriptivo.',
+    exampleUse: 'Aclarar si la tilde en "solo" sigue recomendándose o cuál es el régimen preposicional de un verbo.',
+    expectedResult: 'Autoridad filológica contrastada con rigor académico indiscutible.'
+  },
+  {
+    id: 'cmd-95',
+    title: 'Simulador de Examen Oral de Inglés Nivel C1 (Cambridge Advanced)',
+    category: 'Simulación de Roles y Escenarios',
+    categoryId: 'cat-educacion',
+    tags: ['Inglés C1', 'Speaking', 'Cambridge', 'Examen'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Simula las 4 partes del examen oral de Cambridge C1 (Speaking), haciendo preguntas de una en una y evaluando con notas oficiales.',
+    commandText: 'Actúa como un examinador oficial del examen oral Cambridge English: Advanced (C1). Vamos a practicar la parte 3 (Collaborative Task) o parte 4 (Discussion). Plantéame una sola pregunta formal a la vez en inglés. Espera a que yo responda. Tras mi respuesta, califícame brevemente del 1 al 5 en: Grammatical Resource, Lexical Resource y Discourse Management, e introduce la siguiente pregunta de examen.',
+    exampleUse: 'Preparar la prueba de Speaking del C1 desde casa simulando la tensión real del examen.',
+    expectedResult: 'Entrenamiento interactivo con rúbricas reales de Cambridge English.'
+  },
+  {
+    id: 'cmd-96',
+    title: 'Meta-Prompt: Generador del Prompt Perfecto para esta Tarea',
+    category: 'Meta-Prompting y Afinación',
+    categoryId: 'cat-automatizacion',
+    tags: ['Meta-Prompting', 'Ingeniería de Prompts', 'Optimización', 'IA'],
+    tools: ['ChatGPT', 'Claude', 'Gemini'],
+    description: 'Pide a la IA que redacte la instrucción óptima que deberías haberle dado para conseguir exactamente lo que buscas.',
+    commandText: 'Quiero conseguir el siguiente resultado con una IA: "[OBJETIVO_QUE_DESEAS_LOGRAR]". En lugar de darme la respuesta directamente, redacta el prompt perfecto y avanzado que yo debería utilizar para obtener el mejor resultado posible de un modelo como ChatGPT o Claude. Incluye asignación de rol, restricciones, formato de salida y variables dinámicas editables entre corchetes.',
+    exampleUse: 'Crear el mejor prompt posible para pedirle a una IA que audite la arquitectura de una base de datos.',
+    expectedResult: 'Un prompt de nivel maestro diseñado por la propia IA para auto-instruirse.'
+  },
+  {
+    id: 'cmd-97',
+    title: 'Afinador de Respuesta Anterior: "Hazlo más persuasivo y menos corporativo"',
+    category: 'Meta-Prompting y Afinación',
+    categoryId: 'cat-escritura',
+    tags: ['Afinación', 'Iteración', 'Copywriting', 'Estilo'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Comando de segundo turno para inyectar emoción, reducir formalismos fríos y aumentar la pegada comercial.',
+    commandText: 'Toma la respuesta que me acabas de dar y reescríbela aplicando estas dos directrices: 1) Elimina cualquier tono corporativo artificial o clichés como "en el vertiginoso mundo de hoy" o "soluciones innovadoras", 2) Hazlo sonar como si una persona apasionada e inteligente estuviera hablando cara a cara con un amigo en una cafetería. Aumenta la tensión narrativa y la persuasión.',
+    exampleUse: 'Humanizar una propuesta comercial generada previamente que sonaba demasiado fría y robótica.',
+    expectedResult: 'Un texto cálido, magnético y conversacional que engancha de verdad.'
+  },
+  {
+    id: 'cmd-98',
+    title: 'Afinador de Respuesta Anterior: "Extrae solo el código / los datos sin explicaciones"',
+    category: 'Meta-Prompting y Afinación',
+    categoryId: 'cat-codigo',
+    tags: ['Solo Código', 'Limpieza', 'Formato Plano', 'Eficiencia'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Elimina todo el texto conversacional ("¡Por supuesto! Aquí tienes el código...") para dejar solo el artefacto limpio.',
+    commandText: 'Reescribe tu respuesta anterior eliminando todas las introducciones, cortesías ("¡Claro que sí!"), notas finales y explicaciones. Muestra ÚNICAMENTE el bloque de código final o la tabla de datos, listo para copiar directamente con un clic sin necesidad de borrar texto manual.',
+    exampleUse: 'Limpiar una respuesta cuando solo necesitas copiar el script a tu editor sin leer explicaciones.',
+    expectedResult: 'Salida limpia y directa sin una sola palabra de relleno conversacional.'
+  },
+  {
+    id: 'cmd-99',
+    title: 'Afinador de Respuesta Anterior: "Desafía tus propias asunciones y dame una alternativa radical"',
+    category: 'Meta-Prompting y Afinación',
+    categoryId: 'cat-negocios',
+    tags: ['Pensamiento Crítico', 'Disrupción', 'Segunda Opinión', 'Creatividad'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Fuerza a la IA a replantear su propuesta previa proponiendo un camino diametralmente opuesto pero viable.',
+    commandText: 'Analiza críticamente la solución que acabas de proponerme. ¿Qué asunciones o sesgos tradicionales has dado por sentado sin cuestionarlos? Ahora, proponme una alternativa completamente opuesta o heterodoxa que consiga el mismo objetivo pero rompiendo todas las reglas convencionales que aplicaste en tu primera respuesta.',
+    exampleUse: 'Romper la obviedad de una estrategia de marketing que proponía lo mismo de siempre (hacer anuncios en Meta).',
+    expectedResult: 'Una perspectiva fresca que abre caminos no explorados por el sentido común perezoso.'
+  },
+  {
+    id: 'cmd-100',
+    title: 'Forzador de Razonamiento Paso a Paso (Chain-of-Thought Explícito)',
+    category: 'Meta-Prompting y Afinación',
+    categoryId: 'cat-investigacion',
+    tags: ['Chain of Thought', 'Razonamiento', 'Lógica', 'Matemáticas'],
+    tools: ['ChatGPT', 'Claude', 'Gemini'],
+    description: 'Obliga al modelo a escribir su razonamiento interno paso a paso antes de emitir la respuesta final para evitar alucinaciones en problemas difíciles.',
+    commandText: 'Para resolver la siguiente tarea, debes pensar en voz alta y seguir un proceso riguroso paso a paso (Chain of Thought). Primero, crea un bloque llamado "### 🧠 PROCESO DE RAZONAMIENTO" donde desgloses tus cálculos, premisas y verificación de hipótesis. Solo después de haber completado ese análisis, crea un segundo bloque llamado "### 🎯 RESPUESTA FINAL" con la conclusión definitiva:\n\nTarea: [PEGA_TU_PROBLEMA_MATEMÁTICO_O_LÓGICO]',
+    exampleUse: 'Resolver un acertijo lógico complejo o un cálculo de probabilidad financiera.',
+    expectedResult: 'Máxima precisión analítica gracias a la activación del razonamiento deductivo del modelo.'
+  },
+  {
+    id: 'cmd-101',
+    title: 'Afinador de Longitud: "Condensa en un Tweet de 280 Caracteres"',
+    category: 'Meta-Prompting y Afinación',
+    categoryId: 'cat-escritura',
+    tags: ['Brevedad', 'X', 'Twitter', 'Síntesis'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Condensa la esencia de cualquier respuesta extensa previa en una sola frase de máximo 280 caracteres con espacios incluidos.',
+    commandText: 'Sintetiza la conclusión de la respuesta anterior en un mensaje de un solo párrafo que tenga EXACTAMENTE menos de 280 caracteres (con espacios incluidos). Cada palabra debe ser indispensable. Muestra el conteo de caracteres al final entre paréntesis.',
+    exampleUse: 'Crear el titular o resumen para publicar en redes sociales de un análisis complejo.',
+    expectedResult: 'Frase afilada y concisa lista para publicar que respeta el límite estricto de caracteres.'
+  },
+  {
+    id: 'cmd-102',
+    title: 'Afinador de Formato: "Convierte a JSON Válido Estricto"',
+    category: 'Meta-Prompting y Afinación',
+    categoryId: 'cat-codigo',
+    tags: ['JSON', 'Structured Data', 'APIs', 'Automatización'],
+    tools: ['ChatGPT', 'Claude'],
+    description: 'Transforma cualquier texto descriptivo anterior en un objeto JSON válido, con comillas dobles escapadas y listo para parsear.',
+    commandText: 'Convierte toda la información de la respuesta anterior en un objeto JSON estructurado y 100% válido. No incluyas comentarios en el JSON, utiliza nombres de claves en camelCase en inglés, define tipos adecuados (strings, numbers, booleans, arrays) y no añadas texto antes ni después del bloque de código ```json.',
+    exampleUse: 'Estructurar una lista de productos o recomendaciones para consumirla directamente desde una app o base de datos.',
+    expectedResult: 'JSON sintácticamente perfecto listo para JSON.parse() sin errores de compilación.'
+  }
+];

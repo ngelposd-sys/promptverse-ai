@@ -95,10 +95,11 @@ export const AppProvider: React.FC<{ children: React.ReactNode }> = ({ children 
   };
 
   const unlockPrompt = (prompt: PromptItem): boolean => {
-    const result = unlockPromptWithCoins(userStats, prompt.id, prompt.coinCost, prompt.title);
+    const cost = prompt.coinCost || 0;
+    const result = unlockPromptWithCoins(userStats, prompt.id, cost, prompt.title);
     if (result.success && result.updatedStats) {
       updateStats(result.updatedStats);
-      addToast(`¡Prompt desbloqueado con éxito! Se descontaron ${prompt.coinCost} PC 🔓`, 'success');
+      addToast(`¡Prompt desbloqueado con éxito! Se descontaron ${cost} PC 🔓`, 'success');
       return true;
     } else {
       addToast(result.error || 'No fue posible desbloquear el prompt', 'error');
