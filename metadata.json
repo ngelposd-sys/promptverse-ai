@@ -1,0 +1,6 @@
+{
+  "name": "PromptVerse AI",
+  "description": "La biblioteca definitiva de inteligencia artificial: prompts profesionales, técnicas avanzadas, Prompt Builder y gamificación con PromptCoins.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
